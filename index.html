@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Easy Park</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    html{
+        scroll-behavior: smooth ;
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-800 font-sans">
+  <!-- Hero Section -->
+  <header class="relative h-screen bg-cover bg-center" style="background-image: url('img/main.jpg')">
+    <div class="bg-black bg-opacity-60 h-full flex flex-col justify-between">
+      <nav class="flex justify-between items-center p-6 text-white">
+        <h1 class="text-2xl font-bold">EASY <span class="text-red-500">PARK</span></h1>
+        <ul class="flex space-x-6">
+          <li class="text-red-500 border-b-2 border-red-500">Home</li>
+          <li> <a href="#myBooking">My Booking</a></li>
+          <li> <a href="#testimonials">Testimonials</a></li>
+          <li> <a href="#aboutUs">About us</a></li>
+        </ul>
+        <button class="bg-red-500 px-4 py-2 rounded-full">Contact us</button>
+      </nav>
+      <div class="text-white text-center mt-20">
+        <h2 class="text-4xl font-bold">Affordable & Comfortable  Parking Services</h2>
+        <p class="max-w-xl mx-auto mt-4">Compare And Save Up To 60% On  Parking Deals. Search & Compare Parking Prices For Exclusive Deals & Discounts</p>
+      </div>
+      <form id="parkingForm" class="p-6 max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 bg-white bg-opacity-10 backdrop-blur-md rounded-lg mt-10">
+        <select id="airport" class="p-2 rounded" required>
+          <option value="">Select Location</option>
+          <option value="JFK">Gurgram</option>
+          <option value="LAX">Haryana</option>
+          <option value="ORD">Delhi</option>
+          <option value="ATL">Chandigarh</option>
+          <option value="DFW">Punjab</option>
+        </select>
+        <input type="date" id="checkInDate" class="p-2 rounded" required>
+        <input type="time" id="checkInTime" class="p-2 rounded" required>
+        <input type="date" id="checkOutDate" class="p-2 rounded" required>
+        <input type="time" id="checkOutTime" class="p-2 rounded" required>
+        <input type="text" placeholder="Discount Code" class="p-2 rounded">
+        <button type="submit" class="col-span-2 md:col-span-4 bg-red-500 text-white py-2 rounded">FIND PARKING</button>
+      </form>
+    </div>
+  </header>
+
+  <!-- My Booking Section -->
+  <section class="py-16 bg-gray-100" id="myBooking">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-10">My Bookings</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Booking Card 1 -->
+        <div class="bg-white shadow rounded-lg overflow-hidden">
+          <img src="img/car1.jpg" class="w-full h-40 object-cover">
+          <div class="p-4">
+            <h3 class="font-semibold text-lg">Booking ID: #AB12345</h3>
+            <p class="text-sm text-gray-600">Parking: JFK Airport</p>
+            <p class="text-sm text-gray-600">Date: 2024-04-10</p>
+            <span class="inline-block mt-2 px-3 py-1 bg-yellow-200 text-yellow-800 rounded-full text-xs font-medium">Pending</span>
+          </div>
+        </div>
+        <!-- Booking Card 2 -->
+        <div class="bg-white shadow rounded-lg overflow-hidden">
+          <img src="img/car2.jpg" class="w-full h-40 object-cover">
+          <div class="p-4">
+            <h3 class="font-semibold text-lg">Booking ID: #XY67890</h3>
+            <p class="text-sm text-gray-600">Parking: LAX Airport</p>
+            <p class="text-sm text-gray-600">Date: 2024-03-28</p>
+            <span class="inline-block mt-2 px-3 py-1 bg-green-200 text-green-800 rounded-full text-xs font-medium">Confirmed</span>
+          </div>
+        </div>
+        <!-- Booking Card 3 -->
+        <div class="bg-white shadow rounded-lg overflow-hidden">
+          <img src="img/car3.jpg" class="w-full h-40 object-cover">
+          <div class="p-4">
+            <h3 class="font-semibold text-lg">Booking ID: #LM98765</h3>
+            <p class="text-sm text-gray-600">Parking: ORD Airport</p>
+            <p class="text-sm text-gray-600">Date: 2024-02-15</p>
+            <span class="inline-block mt-2 px-3 py-1 bg-red-200 text-red-800 rounded-full text-xs font-medium">Cancelled</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 text-center">
+    <h2 class="text-3xl font-bold mb-4">Why choose us?</h2>
+    <p class="mb-12">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+    <div class="flex flex-col md:flex-row justify-center gap-8">
+      <div class="bg-blue-600 text-white p-6 border-blue-600 border-2 rounded-lg w-64 hover:bg-transparent transition duration-300 ease-in-out hover:border-2 hover:border-blue-600  hover:text-blue-600 hover:scale-105">
+        <h3 class="text-xl font-semibold">Unbeatable Prices</h3>
+        <p class="text-sm mt-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+      </div>
+      <div class="bg-green-400 text-white p-6 rounded-lg border-green-400 border-2  w-64 hover:bg-transparent transition duration-300 ease-in-out hover:border-green-400 hover:border-2 hover:text-green-400 hover:scale-105">
+        <h3 class="text-xl font-semibold">Expert Support</h3>
+        <p class="text-sm mt-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+      </div>
+      <div class="bg-red-500 text-white p-6 rounded-lg w-64 border-red-500 border-2 hover:bg-transparent transition duration-300 ease-in-out hover:border-red-500 hover:border-2 hover:text-red-500 hover:scale-105">
+        <h3 class="text-xl font-semibold">Customer Satisfaction Guaranteed</h3>
+        <p class="text-sm mt-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking Steps -->
+ 
+
+  <section class="py-16">
+    <h2 class="text-3xl font-bold text-center mb-8">Booking Steps</h2>
+    <div class="flex flex-col md:flex-row justify-center gap-8">
+      <div class="relative w-64 h-80 bg-cover bg-center rounded" style="background-image: url('img/car1.jpg')">
+        <div class="absolute bottom-4 left-4 text-white font-bold">MEET AND GREET</div>
+      </div>
+      <div class="relative w-64 h-80 bg-cover bg-center rounded" style="background-image: url('img/car2.jpg')">
+        <div class="absolute bottom-4 left-4 text-white font-bold">PARK AND RIDE</div>
+      </div>
+      <div class="relative w-64 h-80 bg-cover bg-center rounded" style="background-image: url('img/car3.jpg')">
+        <div class="absolute bottom-4 left-4 text-white font-bold">RAIL AND FLY</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-16 bg-gray-100 text-center" id="testimonials">
+    <h2 class="text-3xl font-bold mb-6">What our Customer say?</h2>
+    <div class="max-w-2xl mx-auto">
+      <div class="flex justify-center space-x-4 mb-6">
+        <img src="img/p1 (1).jpg" class="rounded-full border-4 border-pink-500 w-20" />
+        <img src="img/p1 (2).jpg" class="rounded-full w-20" />
+        <img src="img/p1 (3).jpg" class="rounded-full w-20" />
+      </div>
+      <h3 class="text-xl font-semibold text-pink-500">Arlene McCoy</h3>
+      <p class="text-gray-600">India</p>
+      <p class="mt-4 text-sm">Great Service</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black text-white p-8">
+    <div class="flex flex-col md:flex-row justify-between">
+      <div>
+        <h2 class="text-xl font-bold mb-4">EASY <span class="text-red-500">PARK</span></h2>
+        <ul class="flex space-x-6">
+            <li class="text-red-500 border-b-2 border-red-500">Home</li>
+            <li> <a href="#myBooking">My Booking</a></li>
+            <li> <a href="#testimonials">Testimonials</a></li>
+            <li> <a href="#aboutUs">About us</a></li>
+          </ul>
+        <p class="text-sm">Compare And Save Up To 60% On  Parking Deals. Search & Compare Parking Prices For Exclusive Deals & Discounts</p>
+      </div>
+      <div>
+        <h3 class="font-bold mb-2">Contact Info</h3>
+        <p>Haryana Gurugram</p>
+        <p>itskamal1011@gmail.com</p>
+        <p>91+9467803887</p>
+      </div>
+    </div>
+    <div class="mt-6 border-t pt-4 flex justify-between items-center text-sm">
+      <span>© 2025 Easy Parking/span>
+      <div class="space-x-4">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Refund Policy</a>
+      </div>
+    </div>
+  </footer>
+  <!-- Remaining Sections (Why Choose Us, Booking Steps, Types of Parking, Testimonials, Footer) remain unchanged -->
+  <!-- [CONTENT OMITTED FOR BREVITY IN THIS RESPONSE] -->
+
+  <script>
+    document.getElementById('parkingForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const airport = document.getElementById('airport').value;
+      const checkInDate = document.getElementById('checkInDate').value;
+      const checkOutDate = document.getElementById('checkOutDate').value;
+
+      if (!airport || !checkInDate || !checkOutDate) {
+        alert('Please fill out all required fields.');
+        return;
+      }
+
+      const randomResult = Math.random() > 0.5 ? 'Parking space is available!' : 'Sorry, no parking space available at the moment.';
+      alert(randomResult);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Easy Park</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-white text-gray-800 font-sans">
+  <!-- Hero Section -->
+  <header class="relative h-screen bg-cover bg-center" style="background-image: url('img/main.jpg')">
+    <div class="bg-black bg-opacity-60 h-full flex flex-col justify-between">
+      <nav class="flex justify-between items-center p-6 text-white">
+        <h1 class="text-2xl font-bold">EASY <span class="text-red-500">PARK</span></h1>
+        <ul class="flex space-x-6">
+          <li class="text-red-500 border-b-2 border-red-500">Home</li>
+          <li>My Booking</li>
+          <li>Testimonials</li>
+          <li>About us</li>
+        </ul>
+        <button class="bg-red-500 px-4 py-2 rounded-full">Contact us</button>
+      </nav>
+      <div class="text-white text-center mt-20">
+        <h2 class="text-4xl font-bold">Affordable & Comfortable Airport Parking Services</h2>
+        <p class="max-w-xl mx-auto mt-4">Compare And Save Up To 60% On Airport Parking Deals. Search & Compare Parking Prices For Exclusive Deals & Discounts</p>
+      </div>
+      <form id="parkingForm" class="p-6 max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 bg-white bg-opacity-10 backdrop-blur-md rounded-lg mt-10">
+        <select id="airport" class="p-2 rounded" required>
+          <option value="">Select Airport</option>
+          <option value="JFK">John F. Kennedy International Airport (JFK)</option>
+          <option value="LAX">Los Angeles International Airport (LAX)</option>
+          <option value="ORD">O'Hare International Airport (ORD)</option>
+          <option value="ATL">Hartsfield-Jackson Atlanta Intl (ATL)</option>
+          <option value="DFW">Dallas/Fort Worth International (DFW)</option>
+        </select>
+        <input type="date" id="checkInDate" class="p-2 rounded" required>
+        <input type="time" id="checkInTime" class="p-2 rounded" required>
+        <input type="date" id="checkOutDate" class="p-2 rounded" required>
+        <input type="time" id="checkOutTime" class="p-2 rounded" required>
+        <input type="text" placeholder="Discount Code" class="p-2 rounded">
+        <button type="submit" class="col-span-2 md:col-span-4 bg-red-500 text-white py-2 rounded">FIND PARKING</button>
+      </form>
+    </div>
+  </header>
+
+  <!-- Why Choose Us -->
+  <section class="py-16 text-center">
+    <h2 class="text-3xl font-bold mb-4">Why choose us?</h2>
+    <p class="mb-12">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+    <div class="flex flex-col md:flex-row justify-center gap-8">
+      <div class="bg-blue-600 text-white p-6 rounded-lg w-64">
+        <h3 class="text-xl font-semibold">Unbeatable Prices</h3>
+        <p class="text-sm mt-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+      </div>
+      <div class="bg-orange-400 text-white p-6 rounded-lg w-64">
+        <h3 class="text-xl font-semibold">Expert Support</h3>
+        <p class="text-sm mt-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+      </div>
+      <div class="bg-pink-500 text-white p-6 rounded-lg w-64">
+        <h3 class="text-xl font-semibold">Customer Satisfaction Guaranteed</h3>
+        <p class="text-sm mt-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking Steps -->
+  <section class="py-16 bg-gray-50">
+    <h2 class="text-3xl font-bold text-center mb-4">How to Book Your Parking in 4 Simple Steps</h2>
+    <div class="flex flex-col md:flex-row justify-center gap-8 items-center">
+      <ol class="space-y-4">
+        <li><strong>Step 1:</strong> Choose Airport & Dates</li>
+        <li><strong>Step 2:</strong> Compare Deals</li>
+        <li><strong>Step 3:</strong> Enter Your Details</li>
+        <li><strong>Step 4:</strong> Confirm & Pay</li>
+      </ol>
+      <div class="grid grid-cols-2 gap-4">
+        <img src="https://source.unsplash.com/160x160/?parking1" class="rounded" />
+        <img src="https://source.unsplash.com/160x160/?airport1" class="rounded" />
+        <img src="https://source.unsplash.com/160x160/?car" class="rounded" />
+        <img src="https://source.unsplash.com/160x160/?airplane" class="rounded" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Types of Parking -->
+  <section class="py-16">
+    <h2 class="text-3xl font-bold text-center mb-8">Types of Parking</h2>
+    <div class="flex flex-col md:flex-row justify-center gap-8">
+      <div class="relative w-64 h-80 bg-cover bg-center rounded" style="background-image: url('https://source.unsplash.com/300x400/?businessman')">
+        <div class="absolute bottom-4 left-4 text-white font-bold">MEET AND GREET</div>
+      </div>
+      <div class="relative w-64 h-80 bg-cover bg-center rounded" style="background-image: url('https://source.unsplash.com/300x400/?bus-stop')">
+        <div class="absolute bottom-4 left-4 text-white font-bold">PARK AND RIDE</div>
+      </div>
+      <div class="relative w-64 h-80 bg-cover bg-center rounded" style="background-image: url('https://source.unsplash.com/300x400/?runway')">
+        <div class="absolute bottom-4 left-4 text-white font-bold">RAIL AND FLY</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-16 bg-gray-100 text-center">
+    <h2 class="text-3xl font-bold mb-6">What our Customer say?</h2>
+    <div class="max-w-2xl mx-auto">
+      <div class="flex justify-center space-x-4 mb-6">
+        <img src="https://source.unsplash.com/50x50/?person1" class="rounded-full border-4 border-pink-500" />
+        <img src="https://source.unsplash.com/50x50/?person2" class="rounded-full" />
+        <img src="https://source.unsplash.com/50x50/?person3" class="rounded-full" />
+      </div>
+      <h3 class="text-xl font-semibold text-pink-500">Arlene McCoy</h3>
+      <p class="text-gray-600">Germany</p>
+      <p class="mt-4 text-sm">Lorem Ipsum is simply dummy text of the printing and typesetting industry...</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black text-white p-8">
+    <div class="flex flex-col md:flex-row justify-between">
+      <div>
+        <h2 class="text-xl font-bold mb-4">EASY <span class="text-red-500">PARK</span></h2>
+        <ul class="flex space-x-4 mb-4">
+          <li>Home</li>
+          <li>My Booking</li>
+          <li>Testimonials</li>
+          <li>About us</li>
+        </ul>
+        <p class="text-sm">Lorem ipsum dolor sit amet consectetur, malesuada quis sed nullam...</p>
+      </div>
+      <div>
+        <h3 class="font-bold mb-2">Contact Info</h3>
+        <p>44 Danwers, NY City, USA, 70-102</p>
+        <p>Lamaroyc@Lamaroyc.Us</p>
+        <p>91+585-656-658</p>
+      </div>
+    </div>
+    <div class="mt-6 border-t pt-4 flex justify-between items-center text-sm">
+      <span>© 2024 Elite Commerce x Exertsquad.net</span>
+      <div class="space-x-4">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Refund Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('parkingForm').addEventListener('submit', function(e) {
+      const airport = document.getElementById('airport').value;
+      const checkInDate = document.getElementById('checkInDate').value;
+      const checkOutDate = document.getElementById('checkOutDate').value;
+
+      if (!airport || !checkInDate || !checkOutDate) {
+        alert('Please fill out all required fields.');
+        e.preventDefault();
+      }
+    });
+  </script>
+</body>
+</html>
