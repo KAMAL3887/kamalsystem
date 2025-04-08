@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Bookings</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0; padding: 0;
+      background: #81b5f1;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .tabs button {
+      padding: 10px 20px;
+      border: none;
+      background: #ccc;
+      cursor: pointer;
+      margin: 0 5px;
+      border-radius: 5px;
+    }
+
+    .tabs button.active {
+      background: #007bff;
+      color: white;
+    }
+
+    .controls {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
+    }
+
+    .controls input, .controls select {
+      padding: 8px;
+      width: 48%;
+    }
+
+    .booking-list {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .booking-card {
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      cursor: pointer;
+    }
+
+    .booking-card:hover {
+      background: #f0f8ff;
+    }
+
+    .booking-card h4 {
+      margin: 0;
+    }
+
+    .status {
+      font-size: 12px;
+      color: white;
+      background: #28a745;
+      padding: 3px 8px;
+      border-radius: 3px;
+      float: right;
+    }
+
+    .modal {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.5);
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 20px;
+      width: 400px;
+      border-radius: 10px;
+    }
+
+    .modal-content h3 {
+      margin-top: 0;
+    }
+
+    .close-btn {
+      float: right;
+      cursor: pointer;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>My Bookings</h2>
+
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="upcoming">Upcoming</button>
+    <button class="tab-btn" data-tab="past">Past</button>
+  </div>
+
+  <div class="controls">
+    <input type="text" id="searchInput" placeholder="Search bookings...">
+    <select id="statusFilter">
+      <option value="all">All Status</option>
+      <option value="confirmed">Confirmed</option>
+      <option value="cancelled">Cancelled</option>
+    </select>
+  </div>
+
+  <div class="booking-list" id="bookingList">
+    <!-- Booking cards injected by JS -->
+  </div>
+</div>
+
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+    <h3 id="modalTitle">Booking Details</h3>
+    <p id="modalContent">Details go here...</p>
+  </div>
+</div>
+
+<script>
+  const bookings = [
+    { id: 1, name: "HR05H355", date: "2025-04-10", status: "confirmed", type: "upcoming" },
+    { id: 2, name: "PB08G565", date: "2025-03-22", status: "cancelled", type: "past" },
+    { id: 3, name: "DL01E465", date: "2025-04-12", status: "confirmed", type: "upcoming" },
+    { id: 4, name: "HR26G565", date: "2025-03-22", status: "cancelled", type: "past" },
+    { id: 5, name: "HR01G565", date: "2025-03-22", status: "cancelled", type: "upcoming" },
+    { id: 6, name: "DL08G565", date: "2025-03-22", status: "cancelled", type: "past" },
+  ];
+
+  const bookingList = document.getElementById("bookingList");
+  const searchInput = document.getElementById("searchInput");
+  const statusFilter = document.getElementById("statusFilter");
+  const modal = document.getElementById("modal");
+  const modalTitle = document.getElementById("modalTitle");
+  const modalContent = document.getElementById("modalContent");
+
+  let currentTab = "upcoming";
+
+  function renderBookings() {
+    const search = searchInput.value.toLowerCase();
+    const filter = statusFilter.value;
+    bookingList.innerHTML = "";
+
+    const filtered = bookings.filter(b => 
+      b.type === currentTab &&
+      (b.name.toLowerCase().includes(search)) &&
+      (filter === "all" || b.status === filter)
+    );
+
+    if (filtered.length === 0) {
+      bookingList.innerHTML = "<p>No bookings found.</p>";
+      return;
+    }
+
+    filtered.forEach(booking => {
+      const card = document.createElement("div");
+      card.className = "booking-card";
+      card.innerHTML = `
+        <h4>${booking.name} <span class="status">${booking.status}</span></h4>
+        <p>Date: ${booking.date}</p>
+      `;
+      card.onclick = () => openModal(booking);
+      bookingList.appendChild(card);
+    });
+  }
+
+  function openModal(booking) {
+    modalTitle.innerText = booking.name;
+    modalContent.innerHTML = `
+      <p><strong>Date:</strong> ${booking.date}</p>
+      <p><strong>Status:</strong> ${booking.status}</p>
+      <p><strong>Booking ID:</strong> ${booking.id}</p>
+    `;
+    modal.style.display = "flex";
+  }
+
+  function closeModal() {
+    modal.style.display = "none";
+  }
+
+  document.querySelectorAll(".tab-btn").forEach(btn => {
+    btn.onclick = () => {
+      document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      currentTab = btn.dataset.tab;
+      renderBookings();
+    };
+  });
+
+  searchInput.oninput = renderBookings;
+  statusFilter.onchange = renderBookings;
+
+  renderBookings();
+</script>
+
+</body>
+</html>

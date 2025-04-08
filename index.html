@@ -19,11 +19,14 @@
         <h1 class="text-2xl font-bold">EASYY <span class="text-red-500">PARK</span></h1>
         <ul class="flex space-x-6">
           <li class="text-red-500 border-b-2 border-red-500">Home</li>
-          <li> <a href="#myBooking">My Booking</a></li>
+          <li> <a href="bookings.html">My Booking</a></li>
           <li> <a href="#testimonials">Testimonials</a></li>
-          <li> <a href="#aboutUs">About us</a></li>
+          <li> <a href="about.html">About us</a></li>
         </ul>
-        <button class="bg-red-500 px-4 py-2 rounded-full">Contact us</button>
+        <button onclick="window.location.href='contactus.html'" class="bg-red-500 px-4 py-2 rounded-full text-white">
+          Contact us
+        </button>
+        
       </nav>
       <div class="text-white text-center mt-20">
         <h2 class="text-4xl font-bold">Affordable & Comfortable  Parking Services</h2>
@@ -38,7 +41,7 @@
           <option value="ATL">Chandigarh</option>
           <option value="DFW">Punjab</option>
         </select>
-        <input type="date" id="checkInDate" class="p-2 rounded" required>
+        <input type="date" id="checkInDate" class="p-2 rounded" required >
         <input type="time" id="checkInTime" class="p-2 rounded" required>
         <input type="date" id="checkOutDate" class="p-2 rounded" required>
         <input type="time" id="checkOutTime" class="p-2 rounded" required>
