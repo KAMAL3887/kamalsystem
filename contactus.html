@@ -2,12 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Easyy Park</title>
+  <title>Easy Park</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    html{
+        scroll-behavior: smooth ;
+    }
+  </style>
+  <title>My Bookings</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
-      background-color: #6ec084;
+      background-color: #000102;
     }
 
     /* Contact Button */
@@ -74,7 +81,21 @@
   </style>
 </head>
 <body>
-
+  <header class="relative h-screen bg-cover bg-center" style="background-image: url('img/main.jpg')">
+    <div class="bg-black bg-opacity-60 h-full flex flex-col justify-between">
+      <nav class="flex justify-between items-center p-6 text-white">
+        <h1 class="text-2xl font-bold">EASYY <span class="text-red-500">PARK</span></h1>
+        <ul class="flex space-x-6">
+          <li> <a href="index.html">Home</a></li>
+          <li> <a href="bookings.html">My Booking</a></li>
+          <li> <a href="testimonials.html">Testimonials</a></li>
+          <li> <a href="about.html">About us</a></li>
+        </ul>
+        <button onclick="window.location.href='contactus.html'" class="bg-red-500 px-4 py-2 rounded-full text-white">
+          Contact us
+        </button>
+        
+      </nav>
   <!-- Contact Us Button -->
   <button class="contact-button" onclick="openContactModal()">Contact us</button>
 
